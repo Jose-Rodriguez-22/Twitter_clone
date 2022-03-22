@@ -1,0 +1,166 @@
+/*
+Common
+**************************/
+html,
+body {
+  height: 100%;
+  font-family: sans-serif;
+}
+
+.content {
+  max-width: 600px;
+  margin: 0 auto;
+  border-left: 1px solid rgb(29, 161, 242);
+  border-right: 1px solid rgb(29, 161, 242);
+}
+
+#header {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid rgb(29, 161, 242);
+}
+#header img {
+  width: 60px;
+}
+
+#header h1 {
+  padding-left: 20px;
+  font-size: 25px;
+}
+
+/*
+Post
+**************************/
+
+/* .btn {
+  display: inline-block;
+  border: 0px;
+  background-color: rgb(29, 161, 242);
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+} */
+
+.post_form {
+  padding: 20px 40px;
+  border-bottom: 1px solid rgb(29, 161, 242);
+}
+
+.post_form input {
+  border: 1px solid lightblue;
+  width: 70%;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #e6fef7;
+  border-radius: 5px;
+}
+
+.post_form textarea {
+  border: 1px solid lightblue;
+  width: 70%;
+  padding: 20px 10px;
+  font-family: sans-serif;
+  border-radius: 10px;
+}
+
+input#file {
+  width: 45%;
+  border: 1px solid lightgrey;
+  background-color: white;
+  padding: 0.25rem 0.5rem;
+  margin-top: 10px;
+}
+
+input#button {
+  width: 20%;
+  background-color: rgb(29, 161, 242);
+  color: white;
+  padding: 9px;
+  border: 0;
+  font-weight: bold;
+  font-size: 15px;
+}
+.cancelbutton {
+  display: inline;
+}
+
+a#cancel {
+  text-decoration: none;
+  border: 1px solid;
+  background-color: grey;
+  color: white;
+  padding: 9px;
+  border-radius: 10px;
+}
+
+.posts ul {
+  padding: 0;
+}
+
+.posts li {
+  position: relative;
+  display: flex;
+  border-bottom: 1px solid rgb(29, 161, 242);
+  padding: 20px 40px;
+  list-style: none;
+}
+
+.posts li .menu_icon {
+  width: 20px;
+  position: absolute;
+  top: 10px;
+  right: 30px;
+}
+
+.posts li .menu {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 15px;
+  border: 1px solid rgb(29, 161, 242);
+  background-color: white;
+  padding: 10px 15px;
+  font-size: 13px;
+  border-radius: 3px;
+}
+
+.posts li .menu a {
+  text-decoration: none;
+  color: rgb(29, 161, 242);
+}
+
+.posts li .logo {
+  flex-basis: 15%;
+}
+
+.posts li .logo img {
+  width: 60%;
+}
+
+.posts li .name_body {
+  flex-basis: 85%;
+}
+
+.posts li .name_body .name {
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.posts li .name_body .datetime {
+  color: gray;
+  margin-top: 4px;
+}
+
+@media screen and (max-width: 500px) {
+  .posts li .name_body .name {
+    font-size: 20px;
+  }
+
+  input#button {
+    width: 22%;
+  }
+  input#file {
+    width: 41%;
+  }
+}

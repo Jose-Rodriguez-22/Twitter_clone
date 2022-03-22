@@ -1,0 +1,91 @@
+{% extends "base.html" %} {% block content %} {% load static %}
+<section class="content">
+  <div id="header">
+    <img class="tech_is_logo" src="{% static 'img/index.png' %}" />
+    <h1>Home</h1>
+  </div>
+  <!-- <div class="logo">
+    <img src="{% static 'img/user.png' %}" />
+  </div> -->
+  <section class="post_form">
+    <form action="/" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="text" name="name" placeholder="Your Name" required />
+      <textarea name="body" placeholder="What's Happening?" required></textarea>
+      <input type="file" name="image" id="file" />
+      <input type="submit" value="Tweet" id="button" />
+
+      <!-- <div class="bottom-area">
+        <div class="mb-0">
+          <input class="submit-file" name="img" type="file" />
+        </div>
+        <button class="btn" type="submit">Tweet</button>
+      </div> -->
+    </form>
+  </section>
+
+  <section class="posts">
+    {% if tweets.count == 0 %}
+    <p class="p-3">There is no tweet now.</p>
+    {% else %}
+    <ul>
+      {% for post in posts %}
+      <li>
+        <img class="menu_icon js-menu-icon" src="{% static 'img/menu.png' %}" />
+        <div class="menu">
+          <a href="/delete/{{ post.id }}/">Delete</a> <br />
+          <a href="/edit/{{ post.id }}/">Edit</a>
+        </div>
+        <div class="logo">
+          <img src="{% static 'img/user.png' %}" />
+        </div>
+        <div class="name_body">
+          <div class="name">{{ post.name }}</div>
+          <div class="datetime">{{ post.created_at }}</div>
+          <p>{{ post.body }}</p>
+
+          {% if post.image.url %}
+          <img
+            src="{{post.image.url}}"
+            alt="image"
+            style="width: 250px; height: 200px; border-radius: 10px"
+          />
+          {% endif %}
+          <div class="like-button">
+            <a href="/like/{{ post.id }}"
+              ><img src="/static/img/heart_blue.png" style="width: 30px"
+            /></a>
+            {{post.likecount}}
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </section>
+
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"
+  ></script>
+  <script src="{% static 'js/posts.js' %}"></script>
+
+  <!--leave this section for later-->
+  <!-- <input
+    type="hidden"
+    name="csrfmiddlewaretoken"
+    value="YgVCi25lvYygcSj6G0x29gURAvGyO65QZEVH6ijcDJdniYSANv8jlYpOKUByDvVf"
+  />
+  <script>
+    const JS_CSRFTOKEN = document.querySelector(
+      "[name=csrfmiddlewaretoken]"
+    ).value;
+    const JS_ICON_HEART_GRAY = "/static/img/heart.png";
+    const JS_ICON_HEART_BLUE = "/static/img/heart_blue.png";
+  </script>
+  <script src="/static/js/likes.js"></script> -->
+  <!--leave this section for later-->
+</section>
+
+{% endblock %}
